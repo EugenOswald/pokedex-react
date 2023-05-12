@@ -5,14 +5,42 @@ import PokeModal from './components/pokeModal';
 import Header from './components/header';
 
 class App extends Component {
-	state = {};
+	state = { allPokemons: [], searchArray: [], allTypes: [], selectedPokemon: null, showModal: false };
+
+	handlePokemonSelect = (pokemon) => {
+		this.setState({ selectedPokemon: pokemon, showModal: true });
+	};
+
+	handleModalClose = () => {
+		this.setState({ showModal: false });
+	};
+
+	async componentDidMount() {
+		await this.init();
+	}
+
+	async init() {
+		for (let i = 1; i <= 60; i++) {
+			await this.loadPokemon(i);
+		}
+	}
+
+	async loadPokemon(i) {
+		let url = `https://pokeapi.co/api/v2/pokemon/${i}`;
+		let response = await fetch(url);
+		let responseAsJS = await response.json();
+		this.setState((prevState) => ({
+			allPokemons: [...prevState.allPokemons, responseAsJS],
+		}));
+	}
+
 	render() {
 		return (
 			<React.Fragment>
 				<Loadingscreen />
-				<PokeModal />
+				<PokeModal show={this.state.showModal} onClose={this.handleModalClose} pokemon={this.state.selectedPokemon} />
 				<Header />
-				<Body />
+				<Body pokemons={this.state.allPokemons} onPokemonSelect={this.handlePokemonSelect} />
 			</React.Fragment>
 		);
 	}

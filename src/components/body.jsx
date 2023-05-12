@@ -1,11 +1,17 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 import Cards from './cards';
 
 class Body extends Component {
-    state = {  } 
-    render() { 
-        return (<Cards/>);
-    }
+	state = {};
+	render() {
+		return (
+			<React.Fragment>
+				<div className='container d-flex gap-4 flex-wrap my-4 '>
+					<Cards pokemons={this.props.pokemons} onPokemonSelect={this.props.onPokemonSelect} />
+				</div>
+			</React.Fragment>
+		);
+	}
 }
- 
+
 export default Body;

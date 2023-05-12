@@ -1,33 +1,30 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import { Modal, Button } from 'react-bootstrap';
 import '../style/pokemonTyps.css';
 
 class PokeModal extends Component {
-    state = {  } 
-    render() { 
-        return (
-			<div className='modal fade' id='exampleModal' tabIndex='-1' aria-labelledby='exampleModalLabel' aria-hidden='true'>
-				<div className='modal-dialog'>
-					<div className='modal-content'>
-						<div className='modal-header'>
-							<h5 className='modal-title' id='exampleModalLabel'>
-								Modal title
-							</h5>
-							<button type='button' className='btn-close' data-bs-dismiss='modal' aria-label='Close'></button>
-						</div>
-						<div className='modal-body'>...</div>
-						<div className='modal-footer'>
-							<button type='button' className='btn btn-secondary' data-bs-dismiss='modal'>
-								Close
-							</button>
-							<button type='button' className='btn btn-primary'>
-								Save changes
-							</button>
-						</div>
-					</div>
-				</div>
-			</div>
+	render() {
+		const { pokemon, show, handleClose } = this.props;
+		if (!pokemon) return null; // Wenn kein Pokémon ausgewählt ist, nichts rendern
+
+		return (
+			<Modal show={show} onHide={handleClose}>
+				<Modal.Header closeButton>
+					<Modal.Title>{pokemon.name}</Modal.Title>
+				</Modal.Header>
+				<Modal.Body>
+					<p>Type: {pokemon.type}</p>
+					<p>Height: {pokemon.height}</p>
+					<p>Weight: {pokemon.weight}</p>
+				</Modal.Body>
+				<Modal.Footer>
+					<Button variant='secondary' onClick={handleClose}>
+						Close
+					</Button>
+				</Modal.Footer>
+			</Modal>
 		);
-    }
+	}
 }
- 
+
 export default PokeModal;
