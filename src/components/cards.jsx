@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import '../style/pokemonTyps.css';
 
 class Cards extends Component {
     state = {  } 

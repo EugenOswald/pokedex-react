@@ -1,20 +1,18 @@
 import React, { Component } from 'react';
-import Navbar from './components/navbar';
-import Search from './components/search';
 import Body from './components/body';
 import Loadingscreen from './components/loadingscreen';
 import PokeModal from './components/pokeModal';
+import Header from './components/header';
 
 class App extends Component {
 	state = {};
 	render() {
 		return (
 			<React.Fragment>
-                <Loadingscreen />
-                <PokeModal />
-				<Navbar />
-                <Search />
-                <Body />
+				<Loadingscreen />
+				<PokeModal />
+				<Header />
+				<Body />
 			</React.Fragment>
 		);
 	}

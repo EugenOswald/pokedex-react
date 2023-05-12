@@ -1,7 +1,10 @@
 import React from 'react';
 import * as ReactDOMClient from 'react-dom/client';
 import 'bootstrap/dist/css/bootstrap.min.css'; //Um Bootstrap zu nutzen muss es hier Importiert werden.
+import './style/fontBaloo.css';
 import App from './App';
+
+    
 
 /* const element = <h1>Hello World</h1>;
  */
