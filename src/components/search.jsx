@@ -1,44 +1,25 @@
 import React, { Component } from 'react';
+import { Row, Col, InputGroup, FormControl, Dropdown, DropdownButton } from 'react-bootstrap';
 
 class Search extends Component {
 	state = {};
 	render() {
 		return (
-			<div className='row justify-content-center'>
-				<div className='col-md-6 col-lg-5 col-xl-4'>
-					<div className='input-group mb-4'>
-						<input type='text' className='form-control' aria-label='Text input with dropdown button' placeholder='Name or ID' />
-						<button
-							className='btn btn-outline-secondary dropdown-toggle'
-							type='button'
-							data-bs-toggle='dropdown'
-							aria-expanded='false'
-						>
-							Open
-						</button>
-						<ul className='dropdown-menu dropdown-menu-end'>
-							<li>
-								<span className='dropdown-item'>All</span>
-							</li>
-							<li>
-								<span className='dropdown-item'>Generation 1</span>
-							</li>
-							<li>
-								<span className='dropdown-item'>Generation 2</span>
-							</li>
-							<li>
-								<span className='dropdown-item'>Generation 3</span>
-							</li>
-							<li>
-								<span className='dropdown-item'>Generation 4</span>
-							</li>
-							<li>
-								<span className='dropdown-item'>Generation 5</span>
-							</li>
-						</ul>
-					</div>
-				</div>
-			</div>
+			<Row className='justify-content-center'>
+				<Col md={6} lg={5} xl={4}>
+					<InputGroup className='mb-4'>
+						<FormControl aria-label='Text input with dropdown button' placeholder='Name or ID' />
+						<DropdownButton as={InputGroup.Append} variant='outline-secondary' title='Open' id='input-group-dropdown-2'>
+							<Dropdown.Item href='#'>All</Dropdown.Item>
+							<Dropdown.Item href='#'>Generation 1</Dropdown.Item>
+							<Dropdown.Item href='#'>Generation 2</Dropdown.Item>
+							<Dropdown.Item href='#'>Generation 3</Dropdown.Item>
+							<Dropdown.Item href='#'>Generation 4</Dropdown.Item>
+							<Dropdown.Item href='#'>Generation 5</Dropdown.Item>
+						</DropdownButton>
+					</InputGroup>
+				</Col>
+			</Row>
 		);
 	}
 }
