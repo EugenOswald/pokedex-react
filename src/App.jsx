@@ -20,7 +20,7 @@ class App extends Component {
 	}
 
 	async init() {
-		for (let i = 1; i <= 15; i++) {
+		for (let i = 1; i <= 34; i++) {
 			await this.loadPokemon(i);
 		}
 	}
@@ -41,7 +41,7 @@ class App extends Component {
 		return (
 			<React.Fragment>
 				<Loadingscreen />
-				<PokeModal show={this.state.showModal} onClose={this.handleModalClose} pokemon={this.state.selectedPokemon} />
+				<PokeModal show={this.state.showModal} handleClose={this.handleModalClose} pokemon={this.state.selectedPokemon} />
 				<Header />
 				<Body pokemons={this.state.allPokemons} onPokemonSelect={this.handlePokemonSelect} />
 			</React.Fragment>

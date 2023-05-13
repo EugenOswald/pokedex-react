@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Card } from 'react-bootstrap';
 import '../style/pokemonTyps.css';
+import images from './images';
 
 class Cards extends Component {
 	state = {};
@@ -8,12 +9,21 @@ class Cards extends Component {
 		return (
 			<React.Fragment>
 				{this.props.pokemons.map((pokemon, index) => (
-					<Card style={{ width: '10rem' }} role='button' key={index} onClick={() => this.props.onPokemonSelect(pokemon)}>
-						<Card.Img variant='top' src={pokemon.sprites.other['official-artwork'].front_default} alt={pokemon.name} />
+					<Card
+						style={{ fontFamily: 'Baloo Regular' }}
+						className={`pokemonCards ${pokemon.types[0].type.name}`}
+						role='button'
+						key={index}
+						onClick={() => this.props.onPokemonSelect(pokemon)}
+					>
 						<Card.Body>
+							<Card.Title># {index}</Card.Title>
 							<Card.Title>{pokemon.name}</Card.Title>
-							<Card.Text>{pokemon.types.map((type) => type.type.name).join(', ')}</Card.Text>
+							{pokemon.types.map((type) => (
+								<Card.Img variant='top' src={images[type.type.name]} key={type.type.name} />
+							))}
 						</Card.Body>
+						<Card.Img variant='top' src={pokemon.sprites.other['official-artwork'].front_default} alt={pokemon.name} />
 					</Card>
 				))}
 			</React.Fragment>

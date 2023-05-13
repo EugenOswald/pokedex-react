@@ -1,0 +1,47 @@
+.idNr {
+	color: rgba(0, 0, 0, 0.5);
+	transition: transform 0.225s;
+}
+.rounded-20 {
+	border-radius: 20px;
+}
+
+.card-name {
+	color: white;
+	font-size: 44px;
+	position: absolute;
+	width: 320px;
+	left: 35px;
+	bottom: 15px;
+}
+
+.pokemon-id {
+	position: relative;
+	color: rgba(255, 255, 255, 0.39);
+	font-size: 90px;
+}
+
+.capitalize {
+	text-transform: capitalize;
+}
+
+.modal-poke-img {
+	width: 70%;
+	margin-bottom: 5rem;
+}
+
+
+.pokemonCards {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+    flex-direction: row;
+	width: 300px;
+	height: 150px;
+	background-attachment: fixed;
+	border-radius: 20px;
+	padding: 25px;
+	margin: 20px;
+	cursor: pointer;
+	transition: box-shadow 225ms ease-in-out;
+}

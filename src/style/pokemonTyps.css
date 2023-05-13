@@ -3,7 +3,7 @@
 	background-color: #e5f4dd;
 }
 
-.grass-linear-geadient {
+.grass-linear-gradient {
 	background: rgb(131, 195, 2);
 	background: linear-gradient(180deg, rgba(131, 195, 2, 1) 0%, rgba(82, 122, 0, 1) 100%);
 	border-radius: 20px 20px 50% 50% / 20px 20px 2% 2%;
@@ -13,17 +13,17 @@
 	background-color: #fce6d6;
 }
 
-.fire-linear-geadient {
-	background: rgb(239, 127, 47);
-	background: linear-gradient(180deg, rgba(239, 127, 47, 1) 0%, rgba(190, 87, 13, 1) 100%);
-	border-radius: 20px 20px 50% 50% / 20px 20px 2% 2%;
+.fire-linear-gradient {
+	background: rgb(239, 127, 47) !important;
+	background: linear-gradient(180deg, rgba(239, 127, 47, 1) 0%, rgba(190, 87, 13, 1) 100%) !important;
+	border-radius: 20px 20px 0 0 / 20px 20px 2% 2% !important;
 }
 
 .water {
 	background-color: #d9eaf9;
 }
 
-.water-linear-geadient {
+.water-linear-gradient {
 	background: rgb(53, 146, 220);
 	background: linear-gradient(180deg, rgba(53, 146, 220, 1) 0%, rgba(31, 109, 173, 1) 100%);
 	border-radius: 20px 20px 50% 50% / 20px 20px 2% 2%;
@@ -33,7 +33,7 @@
 	background-color: #e6f3cd;
 }
 
-.bug-linear-geadient {
+.bug-linear-gradient {
 	background: rgb(131, 195, 2);
 	background: linear-gradient(180deg, rgba(131, 195, 2, 1) 0%, rgba(82, 122, 0, 1) 100%);
 	border-radius: 20px 20px 50% 50% / 20px 20px 2% 2%;
@@ -42,7 +42,7 @@
 	background-color: #e9ebec;
 }
 
-.normal-linear-geadient {
+.normal-linear-gradient {
 	background: rgb(144, 153, 162);
 	background: linear-gradient(180deg, rgba(144, 153, 162, 1) 0%, rgba(103, 113, 121, 1) 100%);
 	border-radius: 20px 20px 50% 50% / 20px 20px 2% 2%;
@@ -51,7 +51,7 @@
 	background-color: #f1e0f6;
 }
 
-.poison-linear-geadient {
+.poison-linear-gradient {
 	background: rgb(179, 102, 205);
 	background: linear-gradient(180deg, rgba(179, 102, 205, 1) 0%, rgba(175, 142, 174, 1) 100%);
 	border-radius: 20px 20px 50% 50% / 20px 20px 2% 2%;
@@ -60,7 +60,7 @@
 	background-color: #fff6d7;
 }
 
-.electric-linear-geadient {
+.electric-linear-gradient {
 	background: rgb(251, 208, 3);
 	background: linear-gradient(180deg, rgba(251, 208, 3, 1) 0%, rgba(184, 153, 0, 1) 100%);
 	border-radius: 20px 20px 50% 50% / 20px 20px 2% 2%;
@@ -69,7 +69,7 @@
 	background-color: #fbe3d9;
 }
 
-.ground-linear-geadient {
+.ground-linear-gradient {
 	background: rgb(232, 112, 54);
 	background: linear-gradient(180deg, rgba(232, 112, 54, 1) 0%, rgba(183, 75, 21, 1) 100%);
 	border-radius: 20px 20px 50% 50% / 20px 20px 2% 2%;
@@ -78,7 +78,7 @@
 	background-color: #fceaee;
 }
 
-.fairy-linear-geadient {
+.fairy-linear-gradient {
 	background: rgb(238, 153, 172);
 	background: linear-gradient(180deg, rgba(238, 153, 172, 1) 0%, rgba(228, 98, 126, 1) 100%);
 	border-radius: 20px 20px 50% 50% / 20px 20px 2% 2%;
@@ -87,7 +87,7 @@
 	background-color: #ffe1e4;
 }
 
-.psychic-linear-geadient {
+.psychic-linear-gradient {
 	background: rgb(255, 102, 117);
 	background: linear-gradient(180deg, rgba(255, 102, 117, 1) 0%, rgba(255, 31, 52, 1) 100%);
 	border-radius: 20px 20px 50% 50% / 20px 20px 2% 2%;
@@ -96,7 +96,7 @@
 	background-color: #f4d7d5;
 }
 
-.fighting-linear-geadient {
+.fighting-linear-gradient {
 	background: rgb(191, 47, 40);
 	background: linear-gradient(180deg, rgba(191, 47, 40, 1) 0%, rgba(135, 34, 28, 1) 100%);
 	border-radius: 20px 20px 50% 50% / 20px 20px 2% 2%;
@@ -105,7 +105,7 @@
 	background-color: #fbe3d9;
 }
 
-.rock-linear-geadient {
+.rock-linear-gradient {
 	background: rgb(200, 182, 134);
 	background: linear-gradient(180deg, rgba(200, 182, 134, 1) 0%, rgba(178, 154, 87, 1) 100%);
 	border-radius: 20px 20px 50% 50% / 20px 20px 2% 2%;
@@ -114,7 +114,7 @@
 	background-color: #e0dbf0;
 }
 
-.ghost-linear-geadient {
+.ghost-linear-gradient {
 	background: rgb(100, 76, 178);
 	background: linear-gradient(180deg, rgba(100, 76, 178, 1) 0%, rgba(88, 67, 157, 1) 100%);
 	border-radius: 20px 20px 50% 50% / 20px 20px 2% 2%;
@@ -123,7 +123,7 @@
 	background-color: #dff6f2;
 }
 
-.ice-linear-geadient {
+.ice-linear-gradient {
 	background: rgb(75, 209, 192);
 	background: linear-gradient(180deg, rgba(75, 209, 192, 1) 0%, rgba(40, 162, 146, 1) 100%);
 	border-radius: 20px 20px 50% 50% / 20px 20px 2% 2%;
@@ -132,7 +132,7 @@
 	background-color: #d2e2f5;
 }
 
-.dragon-linear-geadient {
+.dragon-linear-gradient {
 	background: rgb(0, 111, 200);
 	background: linear-gradient(180deg, rgba(0, 111, 200, 1) 0%, rgba(55, 101, 147, 1) 100%);
 	border-radius: 20px 20px 50% 50% / 20px 20px 2% 2%;
@@ -141,7 +141,7 @@
 	background-color: #b9b4c2;
 }
 
-.dark-linear-geadient {
+.dark-linear-gradient {
 	background: rgb(91, 84, 102);
 	background: linear-gradient(180deg, rgba(91, 84, 102, 1) 0%, rgba(50, 46, 56, 1) 100%);
 	border-radius: 20px 20px 50% 50% / 20px 20px 2% 2%;
@@ -150,7 +150,7 @@
 	background-color: #becacf;
 }
 
-.steel-linear-geadient {
+.steel-linear-gradient {
 	background: rgb(171, 172, 187);
 	background: linear-gradient(180deg, rgba(171, 172, 187, 1) 0%, rgba(129, 132, 155, 1) 100%);
 	border-radius: 20px 20px 50% 50% / 20px 20px 2% 2%;
