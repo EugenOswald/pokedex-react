@@ -20,7 +20,7 @@ class App extends Component {
 	}
 
 	async init() {
-		for (let i = 1; i <= 60; i++) {
+		for (let i = 1; i <= 15; i++) {
 			await this.loadPokemon(i);
 		}
 	}
@@ -28,9 +28,12 @@ class App extends Component {
 	async loadPokemon(i) {
 		let url = `https://pokeapi.co/api/v2/pokemon/${i}`;
 		let response = await fetch(url);
-		let responseAsJS = await response.json();
+		let pokemon = await response.json();
+		console.log(pokemon);
+		pokemon.name = pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1);
+
 		this.setState((prevState) => ({
-			allPokemons: [...prevState.allPokemons, responseAsJS],
+			allPokemons: [...prevState.allPokemons, pokemon],
 		}));
 	}
 
