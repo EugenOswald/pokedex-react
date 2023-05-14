@@ -17,13 +17,13 @@ class Cards extends Component {
 						onClick={() => this.props.onPokemonSelect(pokemon)}
 					>
 						<Card.Body>
-							<Card.Title># {index}</Card.Title>
+							<Card.Title className='text-secondary'># {pokemon.id}</Card.Title>
 							<Card.Title>{pokemon.name}</Card.Title>
 							{pokemon.types.map((type) => (
-								<Card.Img variant='top' src={images[type.type.name]} key={type.type.name} />
+								<Card.Img className='card-img-icon' src={images[type.type.name]} key={type.type.name} />
 							))}
 						</Card.Body>
-						<Card.Img variant='top' src={pokemon.sprites.other['official-artwork'].front_default} alt={pokemon.name} />
+						<Card.Img src={pokemon.sprites.other['official-artwork'].front_default} alt={pokemon.name} />
 					</Card>
 				))}
 			</React.Fragment>

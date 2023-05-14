@@ -5,10 +5,10 @@ import PokeModal from './components/pokeModal';
 import Header from './components/header';
 
 class App extends Component {
-	state = { allPokemons: [], searchArray: [], allTypes: [], selectedPokemon: null, showModal: false };
-
+	state = { allPokemons: [], selectedPokemon: null, selectedPokemonIndex: 0, showModal: false };
 	handlePokemonSelect = (pokemon) => {
-		this.setState({ selectedPokemon: pokemon, showModal: true });
+		const index = this.state.allPokemons.findIndex((p) => p.name === pokemon.name);
+		this.setState({ selectedPokemon: pokemon, selectedPokemonIndex: index, showModal: true });
 	};
 
 	handleModalClose = () => {
@@ -37,11 +37,38 @@ class App extends Component {
 		}));
 	}
 
+	handleNext = () => {
+		this.setState((prevState) => {
+			const newIndex = (prevState.selectedPokemonIndex + 1) % this.state.allPokemons.length;
+			return {
+				selectedPokemonIndex: newIndex,
+				selectedPokemon: this.state.allPokemons[newIndex],
+			};
+		});
+	};
+
+	handlePrev = () => {
+		this.setState((prevState) => {
+			const newIndex =
+				prevState.selectedPokemonIndex - 1 < 0 ? this.state.allPokemons.length - 1 : prevState.selectedPokemonIndex - 1;
+			return {
+				selectedPokemonIndex: newIndex,
+				selectedPokemon: this.state.allPokemons[newIndex],
+			};
+		});
+	};
+
 	render() {
 		return (
 			<React.Fragment>
 				<Loadingscreen />
-				<PokeModal show={this.state.showModal} handleClose={this.handleModalClose} pokemon={this.state.selectedPokemon} />
+				<PokeModal
+					show={this.state.showModal}
+					handleClose={this.handleModalClose}
+					pokemon={this.state.selectedPokemon}
+					onNext={this.handleNext}
+					onPrev={this.handlePrev}
+				/>
 				<Header />
 				<Body pokemons={this.state.allPokemons} onPokemonSelect={this.handlePokemonSelect} />
 			</React.Fragment>

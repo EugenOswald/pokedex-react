@@ -6,7 +6,7 @@ class Body extends Component {
 	render() {
 		return (
 			<React.Fragment>
-				<div className='container-fluid d-flex gap-4 flex-wrap my-4 justify-content-center'>
+				<div className='container-fluid d-flex gap-2 flex-wrap my-4 justify-content-center'>
 					<Cards pokemons={this.props.pokemons} onPokemonSelect={this.props.onPokemonSelect} />
 				</div>
 			</React.Fragment>

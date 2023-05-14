@@ -1,7 +1,16 @@
 import React, { Component } from 'react';
 import { Modal, Button } from 'react-bootstrap';
+import arrowLeft from '../imgs/back.png';
+import arrowRight from '../imgs/forward.png';
 
 class PokeModal extends Component {
+	handleNext = () => {
+		this.props.onNext();
+	};
+
+	handlePrev = () => {
+		this.props.onPrev();
+	};
 	render() {
 		const { pokemon, show, handleClose } = this.props;
 		if (!pokemon) return null; // Wenn kein Pokémon ausgewählt ist, nichts rendern
@@ -9,7 +18,7 @@ class PokeModal extends Component {
 		return (
 			<Modal show={show} onHide={handleClose} contentClassName='rounded-20' style={{ fontFamily: 'Baloo Regular' }}>
 				<Modal.Header className={`${pokemon.types[0].type.name}-linear-gradient d-flex flex-column`}>
-					<Button variant='none' className='me-2 btn-close' onClick={handleClose}></Button>
+					<Button variant='none' className='btn-close' onClick={handleClose}></Button>
 					<div className='position-relative d-flex flex-column align-items-center'>
 						<img
 							src={pokemon.sprites.other['official-artwork'].front_default}
@@ -23,6 +32,15 @@ class PokeModal extends Component {
 								</span>
 							</Modal.Title>
 						</div>
+					</div>
+					<div className='d-flex gap-4'>
+						<Button variant='outline-light' onClick={this.handlePrev} disabled={this.props.pokemon.id === 1}>
+							<img style={{ width: '20px' }} src={arrowLeft} alt='Zurück' />
+						</Button>
+
+						<Button variant='outline-light' onClick={this.handleNext}>
+							<img style={{ width: '20px' }} src={arrowRight} alt='Zurück' />
+						</Button>
 					</div>
 				</Modal.Header>
 				<Modal.Body>

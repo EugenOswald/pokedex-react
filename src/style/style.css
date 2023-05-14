@@ -30,12 +30,11 @@
 	margin-bottom: 5rem;
 }
 
-
 .pokemonCards {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-    flex-direction: row;
+	flex-direction: row;
 	width: 300px;
 	height: 150px;
 	background-attachment: fixed;
@@ -44,4 +43,12 @@
 	margin: 20px;
 	cursor: pointer;
 	transition: box-shadow 225ms ease-in-out;
+}
+
+.card-img {
+	width: 50%;
+}
+.card-img-icon {
+	width: 30%;
+	margin-right: 5px;
 }
