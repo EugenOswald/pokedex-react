@@ -9,7 +9,7 @@ class Header extends Component {
 			<React.Fragment>
 				<div className='container'>
 					<Navbar />
-					<Search />
+					<Search onSelectGeneration={this.props.onSelectGeneration} />
 				</div>
 			</React.Fragment>
 		);

@@ -3,21 +3,34 @@ import { Row, Col, InputGroup, FormControl, Dropdown, DropdownButton } from 'rea
 
 class Search extends Component {
 	state = {};
+	handleSelect = (generation) => {
+		this.props.onSelectGeneration(generation);
+	};
 	render() {
 		return (
 			<Row className='justify-content-center'>
 				<Col md={6} lg={5} xl={4}>
 					<InputGroup className='mb-4'>
 						<FormControl aria-label='Text input with dropdown button' placeholder='Name or ID' />
-						<DropdownButton as={InputGroup.Append} variant='outline-secondary' title='Open' id='input-group-dropdown-2'>
-							<Dropdown.Item href='#'>All</Dropdown.Item>
-							<Dropdown.Item href='#'>Generation 1</Dropdown.Item>
-							<Dropdown.Item href='#'>Generation 2</Dropdown.Item>
-							<Dropdown.Item href='#'>Generation 3</Dropdown.Item>
-							<Dropdown.Item href='#'>Generation 4</Dropdown.Item>
-							<Dropdown.Item href='#'>Generation 5</Dropdown.Item>
+						<DropdownButton
+							as={InputGroup.Append}
+							variant='outline-secondary'
+							title='Open'
+							id='input-group-dropdown-2'
+							onSelect={this.handleSelect}
+						>
+							<Dropdown.Item eventKey='all'>All</Dropdown.Item>
+							<Dropdown.Item eventKey='1'>Generation 1</Dropdown.Item>
+							<Dropdown.Item eventKey='2'>Generation 2</Dropdown.Item>
+							<Dropdown.Item eventKey='3'>Generation 3</Dropdown.Item>
+							<Dropdown.Item eventKey='4'>Generation 4</Dropdown.Item>
+							<Dropdown.Item eventKey='5'>Generation 5</Dropdown.Item>
+							<Dropdown.Item eventKey='6'>Generation 6</Dropdown.Item>
+							<Dropdown.Item eventKey='7'>Generation 7</Dropdown.Item>
+							<Dropdown.Item eventKey='8'>Generation 8</Dropdown.Item>
 						</DropdownButton>
 					</InputGroup>
+					{}
 				</Col>
 			</Row>
 		);
