@@ -20,11 +20,6 @@ class PokeModal extends Component {
 				<Modal.Header className={`${pokemon.types[0].type.name}-linear-gradient d-flex flex-column`}>
 					<Button variant='none' className='btn-close' onClick={handleClose}></Button>
 					<div className='position-relative d-flex flex-column align-items-center'>
-						<img
-							src={pokemon.sprites.other['official-artwork'].front_default}
-							alt={pokemon.name}
-							className='z-index-1 modal-poke-img'
-						/>
 						<div>
 							<Modal.Title className='position-absolute card-title bottom-0 start-0'>
 								<span className='pokemon-id font-family: "Baloo Regular"'>
@@ -32,6 +27,11 @@ class PokeModal extends Component {
 								</span>
 							</Modal.Title>
 						</div>
+						<img
+							src={pokemon.sprites.other['official-artwork'].front_default}
+							alt={pokemon.name}
+							className='z-index-1 modal-poke-img'
+						/>
 					</div>
 					<div className='d-flex gap-4'>
 						<Button variant='outline-light' onClick={this.handlePrev} disabled={this.props.pokemon.id === 1}>
