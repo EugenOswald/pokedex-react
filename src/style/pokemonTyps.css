@@ -14,9 +14,9 @@
 }
 
 .fire-linear-gradient {
-	background: rgb(239, 127, 47) !important;
-	background: linear-gradient(180deg, rgba(239, 127, 47, 1) 0%, rgba(190, 87, 13, 1) 100%) !important;
-	border-radius: 20px 20px 0 0 / 20px 20px 2% 2% !important;
+	background: rgb(239, 127, 47) ;
+	background: linear-gradient(180deg, rgba(239, 127, 47, 1) 0%, rgba(190, 87, 13, 1) 100%) ;
+	border-radius: 20px 20px 50% 50% / 20px 20px 2% 2% ;
 }
 
 .water {

@@ -38,33 +38,60 @@ class PokeModal extends Component {
 							<img style={{ width: '20px' }} src={arrowLeft} alt='Zurück' />
 						</Button>
 
-						<Button variant='outline-light' onClick={this.handleNext}>
-							<img style={{ width: '20px' }} src={arrowRight} alt='Zurück' />
+						<Button
+							variant='outline-light'
+							onClick={this.handleNext}
+							disabled={this.props.pokemon.id === this.props.allPokemons.length}
+						>
+							<img style={{ width: '20px' }} src={arrowRight} alt='Nächster' />
 						</Button>
 					</div>
 				</Modal.Header>
 				<Modal.Body>
-					<p>
-						<b>Weight:</b> {pokemon.weight}g
-					</p>
-					<p>
-						<b>Base HP:</b> {pokemon.stats[0].base_stat}
-					</p>
-					<p>
-						<b>Base Attack:</b> {pokemon.stats[1].base_stat}
-					</p>
-					<p>
-						<b>Base Defense:</b> {pokemon.stats[2].base_stat}
-					</p>
-					<p>
-						<b>Base Special Attack:</b> {pokemon.stats[3].base_stat}
-					</p>
-					<p>
-						<b>Base Special Defense:</b> {pokemon.stats[4].base_stat}
-					</p>
-					<p>
-						<b>Base Speed:</b> {pokemon.stats[5].base_stat}
-					</p>
+					<div className=''>
+						<p>
+							<b>Weight:</b> {pokemon.weight}g
+						</p>
+						<p>
+							<b>Base HP:</b> {pokemon.stats[0].base_stat}
+						</p>
+						<p>
+							<b>Base Attack:</b> {pokemon.stats[1].base_stat}
+						</p>
+						<p>
+							<b>Base Defense:</b> {pokemon.stats[2].base_stat}
+						</p>
+						<p>
+							<b>Base Special Attack:</b> {pokemon.stats[3].base_stat}
+						</p>
+						<p>
+							<b>Base Special Defense:</b> {pokemon.stats[4].base_stat}
+						</p>
+						<p>
+							<b>Base Speed:</b> {pokemon.stats[5].base_stat}
+						</p>
+						<p>
+							<b>Weight:</b> {pokemon.weight}g
+						</p>
+						<p>
+							<b>Base HP:</b> {pokemon.stats[0].base_stat}
+						</p>
+						<p>
+							<b>Base Attack:</b> {pokemon.stats[1].base_stat}
+						</p>
+						<p>
+							<b>Base Defense:</b> {pokemon.stats[2].base_stat}
+						</p>
+						<p>
+							<b>Base Special Attack:</b> {pokemon.stats[3].base_stat}
+						</p>
+						<p>
+							<b>Base Special Defense:</b> {pokemon.stats[4].base_stat}
+						</p>
+						<p>
+							<b>Base Speed:</b> {pokemon.stats[5].base_stat}
+						</p>
+					</div>
 				</Modal.Body>
 			</Modal>
 		);
