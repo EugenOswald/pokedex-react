@@ -16,18 +16,18 @@ class App extends Component {
 	handleModalClose = () => {
 		this.setState({ showModal: false });
 	};
-	
-	
-		loadMorePokemon = async () => {
-			if (this.state.allPokemons.length < 1010) {
-				let lastLoadedPokemonId = this.state.allPokemons[this.state.allPokemons.length - 1].id;
-				let nextPokemonId = lastLoadedPokemonId + 1;
-				for (let i = nextPokemonId; i < nextPokemonId + 30 && i <= 1010; i++) {
-					await this.loadPokemon(i);
-				}
-				this.setState({ canLoadMore: this.state.allPokemons.length < 1010 });
+
+	loadMorePokemon = async () => {
+		if (this.state.allPokemons.length < 1010) {
+			let lastLoadedPokemonId = this.state.allPokemons[this.state.allPokemons.length - 1].id;
+			let nextPokemonId = lastLoadedPokemonId + 1;
+			for (let i = nextPokemonId; i < nextPokemonId + 30 && i <= 1010; i++) {
+				await this.loadPokemon(i);
 			}
-		};
+			lastLoadedPokemonId = this.state.allPokemons[this.state.allPokemons.length - 1].id;
+			this.setState({ canLoadMore: lastLoadedPokemonId < 1010 });
+		}
+	};
 	loadGeneration = async (generation) => {
 		this.setState({ allPokemons: [] });
 
@@ -103,6 +103,7 @@ class App extends Component {
 		}));
 	}
 
+	/* Wird nicht genutzt */
 	fetchPokemonData = async (id) => {
 		const url = `https://pokeapi.co/api/v2/pokemon-species/${id}/`;
 		const response = await fetch(url);
@@ -151,7 +152,8 @@ class App extends Component {
 				<Body
 					pokemons={this.state.allPokemons}
 					onPokemonSelect={this.handlePokemonSelect}
-					onLoadMore={this.state.canLoadMore ? this.loadMorePokemon : null}
+					onLoadMore={this.loadMorePokemon}
+					canLoadMore={this.state.canLoadMore}
 				/>
 			</React.Fragment>
 		);

@@ -9,10 +9,13 @@ const LoadingButton = (props) => {
 		await props.onLoadMore();
 		setLoading(false);
 	};
+		console.log('isLoading:', isLoading);
+
+
 
 	return (
 		<div className='d-flex justify-content-center my-4'>
-			<Button variant='primary' disabled={isLoading} onClick={handleClick}>
+			<Button variant='primary' disabled={isLoading || props.disabled} onClick={handleClick} >
 				{isLoading ? 'Loading…' : 'Click to load'}
 			</Button>
 		</div>

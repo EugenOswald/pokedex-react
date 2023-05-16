@@ -6,7 +6,7 @@ class NavbarComponent extends Component {
 	state = {};
 	render() {
 		return (
-			<Navbar className='my-4'>
+			<Navbar className='py-4'>
 				<Container className='justify-content-center'>
 					<Row>
 						<Col xs={6} className='d-flex align-items-center text-center'>

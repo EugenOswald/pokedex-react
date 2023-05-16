@@ -57,3 +57,12 @@
 	width: 30%;
 	margin-right: 5px;
 }
+
+.fullScreen {
+	z-index: 8888;
+	position:fixed;
+	width: 100%;
+	height: 100%;
+	background-color: #fff;
+	
+}
