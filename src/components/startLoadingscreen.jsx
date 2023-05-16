@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 class StartLoadingscreen extends Component {
 	state = {};
 	render() {
-        return <div>
+        return <div className='fullScreen'>
             
         </div>;
 	}

@@ -23,7 +23,7 @@ class Search extends Component {
 					<InputGroup className='mb-4'>
 						<FormControl aria-label='Text input with dropdown button' placeholder='Name or ID' />
 						<DropdownButton
-							disabled={this.state.isLoading}
+							disabled={this.state.isLoading || this.state.pokemonCount > 1010}
 							onClick={this.handleClick}
 							as={InputGroup.Append}
 							variant='outline-secondary'

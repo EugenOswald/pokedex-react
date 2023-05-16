@@ -5,7 +5,9 @@ import PokeModal from './components/pokeModal';
 import Header from './components/header';
 
 class App extends Component {
-	state = { allPokemons: [], selectedPokemon: null, selectedPokemonIndex: 0, showModal: false };
+	state = { allPokemons: [], selectedPokemon: null, selectedPokemonIndex: 0, showModal: false, canLoadMore: true };
+	/* IN state speichere ich die sachen die während der Lebensdauer der Komponente geändert werden können */
+
 	handlePokemonSelect = (pokemon) => {
 		const index = this.state.allPokemons.findIndex((p) => p.name === pokemon.name);
 		this.setState({ selectedPokemon: pokemon, selectedPokemonIndex: index, showModal: true });
@@ -14,7 +16,18 @@ class App extends Component {
 	handleModalClose = () => {
 		this.setState({ showModal: false });
 	};
-
+	
+	
+		loadMorePokemon = async () => {
+			if (this.state.allPokemons.length < 1010) {
+				let lastLoadedPokemonId = this.state.allPokemons[this.state.allPokemons.length - 1].id;
+				let nextPokemonId = lastLoadedPokemonId + 1;
+				for (let i = nextPokemonId; i < nextPokemonId + 30 && i <= 1010; i++) {
+					await this.loadPokemon(i);
+				}
+				this.setState({ canLoadMore: this.state.allPokemons.length < 1010 });
+			}
+		};
 	loadGeneration = async (generation) => {
 		this.setState({ allPokemons: [] });
 
@@ -55,7 +68,7 @@ class App extends Component {
 				break;
 			case '8':
 				start = 810;
-				end = 1017;
+				end = 1010;
 				break;
 
 			default:
@@ -76,13 +89,6 @@ class App extends Component {
 			await this.loadPokemon(i);
 		}
 	}
-
-	loadMorePokemon = async () => {
-		const nextPokemonId = this.state.allPokemons.length + 1;
-		for (let i = nextPokemonId; i < nextPokemonId + 30; i++) {
-			await this.loadPokemon(i);
-		}
-	};
 
 	async loadPokemon(i) {
 		let url = `https://pokeapi.co/api/v2/pokemon/${i}`;
@@ -142,7 +148,11 @@ class App extends Component {
 					allPokemons={this.state.allPokemons}
 				/>
 				<Header onSelectGeneration={this.loadGeneration} />
-				<Body pokemons={this.state.allPokemons} onPokemonSelect={this.handlePokemonSelect} onLoadMore={this.loadMorePokemon} />
+				<Body
+					pokemons={this.state.allPokemons}
+					onPokemonSelect={this.handlePokemonSelect}
+					onLoadMore={this.state.canLoadMore ? this.loadMorePokemon : null}
+				/>
 			</React.Fragment>
 		);
 	}
