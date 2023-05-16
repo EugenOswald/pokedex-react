@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import Body from './components/body';
-import Loadingscreen from './components/loadingscreen';
+import StartLoadingscreen from './components/startLoadingscreen';
 import PokeModal from './components/pokeModal';
 import Header from './components/header';
-import Footer from './components/footer';
 
 class App extends Component {
 	state = { allPokemons: [], selectedPokemon: null, selectedPokemonIndex: 0, showModal: false };
@@ -21,7 +20,7 @@ class App extends Component {
 
 		let start = 1;
 		let end = 34;
-        switch (generation) {
+		switch (generation) {
 			case 'all':
 				start = 1;
 				end = 34;
@@ -91,13 +90,12 @@ class App extends Component {
 		let pokemon = await response.json();
 		pokemon.name = pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1);
 
-		const germanDescription = await this.fetchPokemonData(i); // Aufruf der neuen Funktion
-		
+		/* const germanDescription = await this.fetchPokemonData(i); // Aufruf der neuen Funktion */
 
 		this.setState((prevState) => ({
 			allPokemons: [...prevState.allPokemons, pokemon],
 		}));
-	} 
+	}
 
 	fetchPokemonData = async (id) => {
 		const url = `https://pokeapi.co/api/v2/pokemon-species/${id}/`;
@@ -134,7 +132,7 @@ class App extends Component {
 	render() {
 		return (
 			<React.Fragment>
-				<Loadingscreen />
+				<StartLoadingscreen />
 				<PokeModal
 					show={this.state.showModal}
 					handleClose={this.handleModalClose}
@@ -144,8 +142,7 @@ class App extends Component {
 					allPokemons={this.state.allPokemons}
 				/>
 				<Header onSelectGeneration={this.loadGeneration} />
-				<Body pokemons={this.state.allPokemons} onPokemonSelect={this.handlePokemonSelect} />
-				<Footer onLoadMore={this.loadMorePokemon} />
+				<Body pokemons={this.state.allPokemons} onPokemonSelect={this.handlePokemonSelect} onLoadMore={this.loadMorePokemon} />
 			</React.Fragment>
 		);
 	}
