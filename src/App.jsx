@@ -5,7 +5,7 @@ import PokeModal from './components/pokeModal';
 import Header from './components/header';
 
 class App extends Component {
-	state = { allPokemons: [], selectedPokemon: null, selectedPokemonIndex: 0, showModal: false, canLoadMore: true };
+	state = { allPokemons: [], selectedPokemon: null, selectedPokemonIndex: 0, showModal: false, canLoadMore: true, isLoading: false };
 	/* IN state speichere ich die sachen die während der Lebensdauer der Komponente geändert werden können */
 
 	handlePokemonSelect = (pokemon) => {
@@ -18,6 +18,7 @@ class App extends Component {
 	};
 
 	loadMorePokemon = async () => {
+		this.setState({ isLoading: true });
 		if (this.state.allPokemons.length < 1010) {
 			let lastLoadedPokemonId = this.state.allPokemons[this.state.allPokemons.length - 1].id;
 			let nextPokemonId = lastLoadedPokemonId + 1;
@@ -27,9 +28,11 @@ class App extends Component {
 			lastLoadedPokemonId = this.state.allPokemons[this.state.allPokemons.length - 1].id;
 			this.setState({ canLoadMore: lastLoadedPokemonId < 1010 });
 		}
+		this.setState({ isLoading: false });
 	};
+
 	loadGeneration = async (generation) => {
-		this.setState({ allPokemons: [] });
+		this.setState({ isLoading: true, allPokemons: [] });
 
 		let start = 1;
 		let end = 34;
@@ -68,6 +71,10 @@ class App extends Component {
 				break;
 			case '8':
 				start = 810;
+				end = 905;
+				break;
+			case '9':
+				start = 906;
 				end = 1010;
 				break;
 
@@ -78,6 +85,7 @@ class App extends Component {
 		for (let i = start; i <= end; i++) {
 			await this.loadPokemon(i);
 		}
+		this.setState({ isLoading: false });
 	};
 
 	async componentDidMount() {
@@ -85,7 +93,7 @@ class App extends Component {
 	}
 
 	async init() {
-		for (let i = 1; i <= 34; i++) {
+		for (let i = 1; i <= 20; i++) {
 			await this.loadPokemon(i);
 		}
 	}
@@ -139,7 +147,7 @@ class App extends Component {
 	render() {
 		return (
 			<React.Fragment>
-				<StartLoadingscreen />
+				<StartLoadingscreen isLoading={this.state.isLoading} />
 				<PokeModal
 					show={this.state.showModal}
 					handleClose={this.handleModalClose}

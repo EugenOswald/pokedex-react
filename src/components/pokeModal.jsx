@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import { Modal, Button } from 'react-bootstrap';
 import arrowLeft from '../imgs/back.png';
 import arrowRight from '../imgs/forward.png';
+import ProgressBar from 'react-bootstrap/ProgressBar';
+import '../style/style.css';
+import '../style/pokemonTyps.css';
 
 class PokeModal extends Component {
 	handleNext = () => {
@@ -35,7 +38,7 @@ class PokeModal extends Component {
 					</div>
 					<div className='d-flex gap-4'>
 						<Button variant='outline-light' onClick={this.handlePrev} disabled={this.props.pokemon.id === 1}>
-							<img style={{ width: '20px' }} src={arrowLeft} alt='Zurück' />
+							<img style={{ width: '20px' }} src={arrowLeft} alt='Back' />
 						</Button>
 
 						<Button
@@ -43,34 +46,56 @@ class PokeModal extends Component {
 							onClick={this.handleNext}
 							disabled={this.props.pokemon.id === this.props.allPokemons.length}
 						>
-							<img style={{ width: '20px' }} src={arrowRight} alt='Nächster' />
+							<img style={{ width: '20px' }} src={arrowRight} alt='Next' />
 						</Button>
 					</div>
 				</Modal.Header>
 				<Modal.Body>
-					<div className=''>
-						<p>
-							<b>Weight:</b> {pokemon.weight}g
-						</p>
-						<p>
-							<b>Base HP:</b> {pokemon.stats[0].base_stat}
-						</p>
-						<p>
-							<b>Base Attack:</b> {pokemon.stats[1].base_stat}
-						</p>
-						<p>
-							<b>Base Defense:</b> {pokemon.stats[2].base_stat}
-						</p>
-						<p>
-							<b>Base Special Attack:</b> {pokemon.stats[3].base_stat}
-						</p>
-						<p>
-							<b>Base Special Defense:</b> {pokemon.stats[4].base_stat}
-						</p>
-						<p>
-							<b>Base Speed:</b> {pokemon.stats[5].base_stat}
-						</p>
-						
+					<div className='d-flex flex-column align-items-center mt-2'>
+						<div>
+							<div>
+								<img src="" alt="" srcset="" />
+								<span></span>
+							</div>
+						</div>
+						<h3>Base statistics</h3>
+						<div className='w-100 my-3'>
+
+							{/* <div>
+								<span>Weight:</span> <span>{pokemon.weight}</span>
+							</div>
+ */}
+							<div className='d-flex align-items-center'>
+								<span className='me-1 base-stats-name'>HP</span>
+								<span className='px-1 border-vertical'>{pokemon.stats[0].base_stat}</span>
+								<ProgressBar now={pokemon.stats[0].base_stat} variant={`${pokemon.types[0].type.name}`} className='w-100' />
+							</div>
+							<div className='d-flex align-items-center'>
+								<span className='me-1 base-stats-name'>ATT</span>
+								<span className='px-1 border-vertical'>{pokemon.stats[1].base_stat}</span>
+								<ProgressBar now={pokemon.stats[1].base_stat} variant={`${pokemon.types[0].type.name}`} className='w-100' />
+							</div>
+							<div className='d-flex align-items-center'>
+								<span className='me-1 base-stats-name'>DEF</span>
+								<span className='px-1 border-vertical'>{pokemon.stats[2].base_stat}</span>
+								<ProgressBar now={pokemon.stats[2].base_stat} variant={`${pokemon.types[0].type.name}`} className='w-100' />
+							</div>
+							<div className='d-flex align-items-center'>
+								<span className='me-1 base-stats-name'>SP-ATT</span>
+								<span className='px-1 border-vertical'>{pokemon.stats[3].base_stat}</span>
+								<ProgressBar now={pokemon.stats[3].base_stat} variant={`${pokemon.types[0].type.name}`} className='w-100' />
+							</div>
+							<div className='d-flex align-items-center'>
+								<span className='me-1 base-stats-name'>SP-DEF</span>
+								<span className='px-1 border-vertical'>{pokemon.stats[4].base_stat}</span>
+								<ProgressBar now={pokemon.stats[4].base_stat} variant={`${pokemon.types[0].type.name}`} className='w-100' />
+							</div>
+							<div className='d-flex align-items-center'>
+								<span className='me-1 base-stats-name'>SPD</span>
+								<span className='px-1 border-vertical'>{pokemon.stats[5].base_stat}</span>
+								<ProgressBar now={pokemon.stats[5].base_stat} variant={`${pokemon.types[0].type.name}`} className='w-100' />
+							</div>
+						</div>
 					</div>
 				</Modal.Body>
 			</Modal>

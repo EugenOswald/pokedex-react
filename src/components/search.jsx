@@ -44,6 +44,7 @@ class Search extends Component {
 									<Dropdown.Item eventKey='6'>Generation 6</Dropdown.Item>
 									<Dropdown.Item eventKey='7'>Generation 7</Dropdown.Item>
 									<Dropdown.Item eventKey='8'>Generation 8</Dropdown.Item>
+									<Dropdown.Item eventKey='9'>Generation 9</Dropdown.Item>
 								</>
 							)}
 						</DropdownButton>
