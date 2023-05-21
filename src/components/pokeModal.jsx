@@ -53,11 +53,16 @@ class PokeModal extends Component {
 				</Modal.Header>
 				<Modal.Body>
 					<div className='d-flex flex-column align-items-center mt-2'>
-						<div>
-							{this.props.pokemons.map((pokemon, type) => (
-								<div>
-									<img src={images[type.type.name]} alt='' />
-									<span>${pokemon.types[0].type.name}</span>
+						<div className='justify-content-center d-flex mb-3'>
+							{pokemon.types.map((typeObj) => (
+								<div
+									key={typeObj.type.name}
+									className={`${typeObj.type.name} rounded-pill type-width mx-1 d-flex justify-content-center align-items-center position-relative`}
+								>
+									<img src={images[typeObj.type.name]} className='cardModal-img-icon' alt='' />
+									<div className='text-center'>
+										<span>{typeObj.type.name}</span>
+									</div>
 								</div>
 							))}
 						</div>
