@@ -5,6 +5,7 @@ import arrowRight from '../imgs/forward.png';
 import ProgressBar from 'react-bootstrap/ProgressBar';
 import '../style/style.css';
 import '../style/pokemonTyps.css';
+import images from './images';
 
 class PokeModal extends Component {
 	handleNext = () => {
@@ -53,14 +54,15 @@ class PokeModal extends Component {
 				<Modal.Body>
 					<div className='d-flex flex-column align-items-center mt-2'>
 						<div>
-							<div>
-								<img src="" alt="" srcset="" />
-								<span></span>
-							</div>
+							{this.props.pokemons.map((pokemon, type) => (
+								<div>
+									<img src={images[type.type.name]} alt='' />
+									<span>${pokemon.types[0].type.name}</span>
+								</div>
+							))}
 						</div>
 						<h3>Base statistics</h3>
 						<div className='w-100 my-3'>
-
 							{/* <div>
 								<span>Weight:</span> <span>{pokemon.weight}</span>
 							</div>
