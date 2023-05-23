@@ -5,7 +5,15 @@ import PokeModal from './components/pokeModal';
 import Header from './components/header';
 
 class App extends Component {
-	state = { allPokemons: [], selectedPokemon: null, selectedPokemonIndex: 0, showModal: false, canLoadMore: true, isLoading: false };
+	state = {
+		firstLoad: true,
+		allPokemons: [],
+		selectedPokemon: null,
+		selectedPokemonIndex: 0,
+		showModal: false,
+		canLoadMore: true,
+		isLoading: false,
+	};
 	/* IN state speichere ich die sachen die während der Lebensdauer der Komponente geändert werden können */
 
 	handlePokemonSelect = (pokemon) => {
@@ -93,6 +101,10 @@ class App extends Component {
 	}
 
 	async init() {
+		if ({ firstLoad: true }) {
+			this.fistLoad = false;
+			alert('The page is still under construction | 21.05.2023');
+		}
 		for (let i = 1; i <= 20; i++) {
 			await this.loadPokemon(i);
 		}

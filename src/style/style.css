@@ -54,8 +54,19 @@
 	width: 50%;
 }
 .card-img-icon {
-	width: 30%;
+	width: 25%;
 	margin-right: 5px;
+}
+
+.cardModal-img-icon {
+	position: absolute;
+	left: 0;
+	width: 25%;
+}
+
+.type-width{
+width: 100px;
+    padding-left: 15px;
 }
 
 .fullScreen {

@@ -5,6 +5,7 @@ import arrowRight from '../imgs/forward.png';
 import ProgressBar from 'react-bootstrap/ProgressBar';
 import '../style/style.css';
 import '../style/pokemonTyps.css';
+import images from './images';
 
 class PokeModal extends Component {
 	handleNext = () => {
@@ -52,15 +53,21 @@ class PokeModal extends Component {
 				</Modal.Header>
 				<Modal.Body>
 					<div className='d-flex flex-column align-items-center mt-2'>
-						<div>
-							<div>
-								<img src="" alt="" srcSet="" />    
-								<span></span>
-							</div>
+						<div className='justify-content-center d-flex mb-3'>
+							{pokemon.types.map((typeObj) => (
+								<div
+									key={typeObj.type.name}
+									className={`${typeObj.type.name} rounded-pill type-width mx-1 d-flex justify-content-center align-items-center position-relative`}
+								>
+									<img src={images[typeObj.type.name]} className='cardModal-img-icon' alt='' />
+									<div className='text-center'>
+										<span>{typeObj.type.name}</span>
+									</div>
+								</div>
+							))}
 						</div>
 						<h3>Base statistics</h3>
 						<div className='w-100 my-3'>
-
 							{/* <div>
 								<span>Weight:</span> <span>{pokemon.weight}</span>
 							</div>
