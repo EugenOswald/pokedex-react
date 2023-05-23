@@ -54,7 +54,7 @@ class PokeModal extends Component {
 					<div className='d-flex flex-column align-items-center mt-2'>
 						<div>
 							<div>
-								<img src="" alt="" srcset="" />
+								<img src="" alt="" srcSet="" />    
 								<span></span>
 							</div>
 						</div>
