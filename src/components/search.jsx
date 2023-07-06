@@ -35,16 +35,11 @@ class Search extends Component {
 								'Loading…'
 							) : (
 								<>
-									<Dropdown.Item eventKey='all'>All</Dropdown.Item>
-									<Dropdown.Item eventKey='1'>Generation 1</Dropdown.Item>
-									<Dropdown.Item eventKey='2'>Generation 2</Dropdown.Item>
-									<Dropdown.Item eventKey='3'>Generation 3</Dropdown.Item>
-									<Dropdown.Item eventKey='4'>Generation 4</Dropdown.Item>
-									<Dropdown.Item eventKey='5'>Generation 5</Dropdown.Item>
-									<Dropdown.Item eventKey='6'>Generation 6</Dropdown.Item>
-									<Dropdown.Item eventKey='7'>Generation 7</Dropdown.Item>
-									<Dropdown.Item eventKey='8'>Generation 8</Dropdown.Item>
-									<Dropdown.Item eventKey='9'>Generation 9</Dropdown.Item>
+									{Array.from({ length: 9 }, (_, i) => i + 1).map((gen) => (
+										<Dropdown.Item onClick={this.props.onClick} eventKey={gen.toString()} key={gen}>
+											{`Generation ${gen}`}
+										</Dropdown.Item>
+									))}
 								</>
 							)}
 						</DropdownButton>

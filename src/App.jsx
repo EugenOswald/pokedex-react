@@ -3,10 +3,25 @@ import Body from './components/body';
 import StartLoadingscreen from './components/startLoadingscreen';
 import PokeModal from './components/pokeModal';
 import Header from './components/header';
+import Startpage from './components/startpage';
 
 class App extends Component {
-	state = { allPokemons: [], selectedPokemon: null, selectedPokemonIndex: 0, showModal: false, canLoadMore: true, isLoading: false };
-	/* IN state speichere ich die sachen die während der Lebensdauer der Komponente geändert werden können */
+	constructor(props) {
+		super(props);
+		this.handleNavbarClick = this.handleNavbarClick.bind(this);
+	}
+
+	state = {
+		allPokemons: [],
+		selectedPokemon: null,
+		selectedPokemonIndex: 0,
+		showModal: false,
+		canLoadMore: true,
+		isLoading: false,
+		firstLoad: true,
+		generationStart: 0,
+		generationEnd: 0,
+	};
 
 	handlePokemonSelect = (pokemon) => {
 		const index = this.state.allPokemons.findIndex((p) => p.name === pokemon.name);
@@ -34,13 +49,9 @@ class App extends Component {
 	loadGeneration = async (generation) => {
 		this.setState({ isLoading: true, allPokemons: [] });
 
-		let start = 1;
-		let end = 34;
+		let start = 0;
+		let end = 0;
 		switch (generation) {
-			case 'all':
-				start = 1;
-				end = 34;
-				break;
 			case '1':
 				start = 1;
 				end = 151;
@@ -82,10 +93,19 @@ class App extends Component {
 				break;
 		}
 
+		this.setState({ generationStart: start, generationEnd: end });
+
 		for (let i = start; i <= end; i++) {
 			await this.loadPokemon(i);
 		}
 		this.setState({ isLoading: false });
+	};
+
+	calculateProgress = () => {
+		const { allPokemons, generationStart, generationEnd } = this.state;
+		const total = generationEnd - generationStart + 1;
+		const progress = (allPokemons.length / total) * 100;
+		return progress;
 	};
 
 	async componentDidMount() {
@@ -144,10 +164,15 @@ class App extends Component {
 		});
 	};
 
+	handleNavbarClick = () => {
+		this.setState({ firstLoad: false });
+	};
+
 	render() {
+		const progress = this.calculateProgress();
 		return (
 			<React.Fragment>
-				<StartLoadingscreen isLoading={this.state.isLoading} />
+				<StartLoadingscreen isLoading={this.state.isLoading} progress={progress}/>
 				<PokeModal
 					show={this.state.showModal}
 					handleClose={this.handleModalClose}
@@ -156,13 +181,17 @@ class App extends Component {
 					onPrev={this.handlePrev}
 					allPokemons={this.state.allPokemons}
 				/>
-				<Header onSelectGeneration={this.loadGeneration} />
-				<Body
-					pokemons={this.state.allPokemons}
-					onPokemonSelect={this.handlePokemonSelect}
-					onLoadMore={this.loadMorePokemon}
-					canLoadMore={this.state.canLoadMore}
-				/>
+				<Header firstLoad={this.state.firstLoad} onClick={this.handleNavbarClick} onSelectGeneration={this.loadGeneration} />
+				{this.state.firstLoad ? (
+					<Startpage />
+				) : (
+					<Body
+						pokemons={this.state.allPokemons}
+						onPokemonSelect={this.handlePokemonSelect}
+						onLoadMore={this.loadMorePokemon}
+						canLoadMore={this.state.canLoadMore}
+					/>
+				)}
 			</React.Fragment>
 		);
 	}

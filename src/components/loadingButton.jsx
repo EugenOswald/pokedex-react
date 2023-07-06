@@ -9,7 +9,7 @@ const LoadingButton = (props) => {
 		await props.onLoadMore();
 		setLoading(false);
 	};
-		console.log('isLoading:', isLoading);
+		
 
 
 
