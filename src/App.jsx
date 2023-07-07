@@ -6,22 +6,32 @@ import Header from './components/header';
 import Startpage from './components/startpage';
 
 class App extends Component {
+<<<<<<< HEAD
 	constructor(props) {
 		super(props);
 		this.handleNavbarClick = this.handleNavbarClick.bind(this);
 	}
 
 	state = {
+=======
+	state = {
+		firstLoad: true,
+>>>>>>> 1a779dac6b7d34c56ac53094d337c441a892214f
 		allPokemons: [],
 		selectedPokemon: null,
 		selectedPokemonIndex: 0,
 		showModal: false,
 		canLoadMore: true,
 		isLoading: false,
+<<<<<<< HEAD
 		firstLoad: true,
 		generationStart: 0,
 		generationEnd: 0,
 	};
+=======
+	};
+	/* IN state speichere ich die sachen die während der Lebensdauer der Komponente geändert werden können */
+>>>>>>> 1a779dac6b7d34c56ac53094d337c441a892214f
 
 	handlePokemonSelect = (pokemon) => {
 		const index = this.state.allPokemons.findIndex((p) => p.name === pokemon.name);
@@ -113,6 +123,10 @@ class App extends Component {
 	}
 
 	async init() {
+		if ({ firstLoad: true }) {
+			this.fistLoad = false;
+			alert('The page is still under construction | 21.05.2023');
+		}
 		for (let i = 1; i <= 20; i++) {
 			await this.loadPokemon(i);
 		}
