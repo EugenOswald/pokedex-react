@@ -108,7 +108,7 @@ class App extends Component {
 		return progress;
 	};
 
-	async componentDidMount() {
+	/* async componentDidMount() {
 		await this.init();
 	}
 
@@ -120,7 +120,7 @@ class App extends Component {
 		for (let i = 1; i <= 20; i++) {
 			await this.loadPokemon(i);
 		}
-	}
+	} */
 
 	async loadPokemon(i) {
 		let url = `https://pokeapi.co/api/v2/pokemon/${i}`;

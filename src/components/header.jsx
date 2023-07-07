@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Navbar from './navbar';
-import Search from './search';
+import Dropdownmenu from './dropdownmenu';
 
 class Header extends Component {
 	state = {};
@@ -8,8 +8,10 @@ class Header extends Component {
 		return (
 			<React.Fragment>
 				<div className='container'>
-					<Navbar />
-					<Search onClick={this.props.onClick} onSelectGeneration={this.props.onSelectGeneration} />
+					<div className='row'>
+						<Navbar/>
+						<Dropdownmenu onClick={this.props.onClick} onSelectGeneration={this.props.onSelectGeneration} />
+					</div>
 				</div>
 			</React.Fragment>
 		);
